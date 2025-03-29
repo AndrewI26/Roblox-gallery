@@ -20,6 +20,14 @@
             <li class="nav-item"><a href="admin.php">Admin</a></li>
         </ul>
     </nav>
+    <form class="login" action="edit.php" method="GET">
+        <p class="login-title">Admin Login Page</p>
+        <p>Username</p>
+        <input class="user" name="username" type="text" />
+        <p>Password</p>
+        <input class="pass" name="password" type="password" />
+        <input type="submit" class="login-btn" />
+    </form>
 </body>
 
 </html>

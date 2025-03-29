@@ -1,0 +1,39 @@
+.login {
+    background-color: var(--bg-secondary);
+    border-radius: 20px;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 5rem;
+    padding: 1rem 4rem;
+}
+.login-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+.login-btn {
+    color: white;
+    background-color: black;
+    width: 100%;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: .8rem 0;
+    border-radius: 15px;
+    margin-top: 40px;
+    border: none;
+}
+.login-btn:hover {
+    background-color: rgb(95, 95, 95);
+}
+.user {
+    border-radius: 5px;
+    border: black solid 1px;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+.pass {
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border: black solid 1px;
+}
