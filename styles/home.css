@@ -10,6 +10,7 @@
     position: absolute;
     width: 1000px;
     height: auto;
+    z-index: -1000;
 }
 .hero-title {
     font-size: 6rem;
@@ -35,6 +36,10 @@
     font-weight: 700;
     background-color: var(--primary);
     color: var(--bg)
+}
+.contact-me:hover {
+    background-color:#440071;
+    color: white;
 }
 .about-me {
     background-color: var(--primary);
@@ -91,4 +96,66 @@
 }
 .skills-desc {
     font-size: 1.2rem;
+}
+.work {
+    padding: 10vh 10vw;
+}
+.work-img {
+    width: 50%;
+    height: 300px;
+    background-color: grey;
+}
+.work-flex {
+    display: flex;
+    justify-content: space-around;
+}
+.work-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.work-info-container {
+    
+    padding: 0 2rem;
+    border-left: solid 3px var(--primary);
+}
+.work-item-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+.work-item-desc {
+    font-weight: 300;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+.work-item-link {
+    font-weight: 400;
+    color: var(--primary);
+    font-size: .8rem;
+}
+.work-item-view {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: .7rem;
+}
+.arrow {
+  border: solid var(--text-primary);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  width: 5px;
+  height: 5px;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+.arrow:hover {
+    border-color: var(--primary);
+}
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
