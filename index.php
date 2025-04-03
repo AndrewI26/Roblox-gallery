@@ -14,6 +14,7 @@ Main home page for the website
     <link rel="stylesheet" href="styles/home.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="js/home.js"></script>
 </head>
 
 <body>
@@ -57,6 +58,22 @@ Main home page for the website
                 <img src="images/sand-clock.svg" class="skills-img" />
                 <p class="skills-title">Quick</p>
                 <p class="skills-desc">The average project is finished in under two weeks. I am fast!</p>
+            </div>
+        </div>
+        <div class="work">
+            <p class="section-heading">PAST PROJECTS</p>
+            <h1 class="section-title">Check out my work</h1>
+            <div class="work-flex">
+                <div class="work-info">
+                    <div class="work-info-container">
+                        <p id="gall-title" class="work-item-title">Sample name</p>
+                        <p id="gall-desc" class="work-item-desc">Sample description kndjfsg dkfs jnkdf gd ksfg kbdfsg kvgb injn.</p>
+                        <p id="gall-link" class="work-item-link"><a>Check it out in the gallery</a></p>
+                        <i id="home-arrow" class="arrow right"></i>
+                    </div>
+                </div>
+                <div class="work-img">
+                </div>
             </div>
         </div>
     </main>
