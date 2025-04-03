@@ -38,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 */
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($name && $email && $message) {
-        $to = "haokaihang2021@126.com";
-        $subject = "New contact form message from $name";
+        $to = "hansencheng635@gmail.com";
+        $subject = "New contact form undefined from $name";
         $body = "Name: $name\nEmail: $email\nMessage:\n$message";
         $headers = "From: $email";
 
