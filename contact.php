@@ -1,14 +1,14 @@
 <?php
 
-try {
+/*try {
     $pdo = new PDO(
         "mysql:host=127.0.0.1;dbname=malikm98_db",
         "malikm98_local",
         "1,b:q0(F"
     );
 } catch (Exception $e) {
-    die("ERROR: Couldn't connect. {$e->getMessage()}");
-}
+    die("ERROR: Couldn't connect.");
+}*/
 $success = "";
 $error = "";
 
@@ -16,6 +16,7 @@ $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 $message = filter_input(INPUT_POST, "message", FILTER_SANITIZE_SPECIAL_CHARS);
 
+/*
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($name && $email && $message) {
         try {
@@ -28,13 +29,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $error = "Submission failed, please try again later.";
             }
         } catch (Exception $e) {
-            $error = "Database error: " . $e->getMessage();
+            $error = "Database error:  ;
+        }
+    } else {
+        $error = "Please fill in all fields and make sure the email address is correct.";
+    }
+}
+*/
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if ($name && $email && $message) {
+        $to = "haokaihang2021@126.com";
+        $subject = "New contact form message from $name";
+        $body = "Name: $name\nEmail: $email\nMessage:\n$message";
+        $headers = "From: $email";
+
+        if (mail($to, $subject, $body, $headers)) {
+            $success = "The message has been sent successfully.";
+        } else {
+            $error = "Sending failed. Please try again later.";
         }
     } else {
         $error = "Please fill in all fields and make sure the email address is correct.";
     }
 }
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
