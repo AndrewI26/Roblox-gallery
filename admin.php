@@ -1,3 +1,8 @@
+<!-- 
+Created by Mekaeel Malik
+April 2nd
+Login page for the website 
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +25,7 @@
             <li class="nav-item"><a href="admin.php">Admin</a></li>
         </ul>
     </nav>
-    <form class="login" action="edit.php" method="POST">
+    <form class="login" action="backend.php" method="POST">
         <p class="login-title">Admin Login Page</p>
         <p>Username</p>
         <input class="user" name="username" type="text" />

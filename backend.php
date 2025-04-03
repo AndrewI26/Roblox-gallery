@@ -1,3 +1,8 @@
+<!-- 
+Created by Mekaeel Malik
+April 2nd
+Login page for the website 
+-->
 <?php
 $user = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 $password = filter_input(INPUT_POST, "password", FILTER_DEFAULT);
@@ -34,6 +39,15 @@ if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user
             <li class="nav-item"><a href="admin.php">Admin</a></li>
         </ul>
     </nav>
+    <form action="addTile.php" method="POST">
+        <label for="title-text">Title Text: </label>
+        <input name="title-text" id="title-text" type="text">
+        <label for="paragraph-text">Paragraph Text: </label>
+        <input name="paragraph-text" id="paragraph-text" type="text">
+        <label for="image-input" id="image-input">Image: </label>
+        <input accept="image/*" name="image-input" id="image-input" type="file">
+        <input type="submit" class="login-btn"/>
+    </form>
     <?php echo $msg ?>
 </body>
 
