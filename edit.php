@@ -40,22 +40,23 @@ if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user
             <li class="nav-item"><a href="admin.php">Admin</a></li>
         </ul>
     </nav>
-    <?php if ($canEdit): ?>
-        <form action="addTile.php" method="POST">
-            <label for="title-text">Title Text: </label>
-            <input name="title-text" id="title-text" type="text">
-            <label for="paragraph-text">Paragraph Text: </label>
-            <input name="paragraph-text" id="paragraph-text" type="text">
-            <label for="image-input" id="image-input">Image: </label>
-            <input accept="image/*" name="image-input" id="image-input" type="file">
-            <input type="submit" class="login-btn" />
-        </form>
-    <?php else: ?>
-        <div class="edit-container">
+    <div class="edit-container">
+        <?php if ($canEdit): ?>
+            <form action="addTile.php" method="POST">
+                <label for="title-text">Title Text: </label>
+                <input name="title-text" id="title-text" type="text">
+                <label for="paragraph-text">Paragraph Text: </label>
+                <input name="paragraph-text" id="paragraph-text" type="text">
+                <label for="image-input" id="image-input">Image: </label>
+                <input accept="image/*" name="image-input" id="image-input" type="file">
+                <input type="submit" id="sub" />
+            </form>
+        <?php else: ?>
+
             <?php echo $errorMsg ?>
             <p><a href="admin.php">Try again</a></p>
-        </div>
-    <?php endif ?>
+        <?php endif ?>
+    </div>
 </body>
 
 </html>

@@ -45,7 +45,7 @@ form {
     max-width: 600px;
     margin: 0 auto;
 }
-form label {
+form label, form p {
     font-size: 1.1rem;
     font-weight: 500;
     display: block;
