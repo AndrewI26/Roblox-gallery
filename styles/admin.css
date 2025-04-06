@@ -1,45 +1,85 @@
-.login {
-    background-color: var(--bg-secondary);
-    border-radius: 20px;
-    max-width: 800px;
-    margin: auto;
-    margin-top: 5rem;
-    padding: 1rem 4rem;
+.login-container {
+    padding: 100px 5vw;
+    text-align: center;
 }
 .login-title {
     font-size: 2.5rem;
     font-weight: 600;
+    text-align: center;
+    margin: auto;
 }
-.login-btn {
-    color: white;
-    background-color: black;
-    width: 100%;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: .8rem 0;
-    border-radius: 15px;
-    margin-top: 40px;
-    border: none;
+form {
+    max-width: 600px;
+    margin: auto;
 }
-.login-btn:hover {
-    background-color: rgb(95, 95, 95);
+form p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+    color: #111111;
 }
-.user {
-    border-radius: 5px;
-    border: black solid 1px;
-    padding: .5rem 1rem;
-    font-size: 1rem;
+.edit-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+}
+.edit-container a {
     color: var(--text-secondary);
-    width: 100%;
-    box-sizing: border-box;
-    margin: auto;
+    font-weight: 700;
+    border-radius: 15px;
+    margin: 1rem;
+    font-size: 1.2rem;
+    background-color: var(--bg-secondary);
+    padding: 1rem;
 }
-.pass {
-    border-radius: 5px;
-    padding: .5rem 1rem;
+.edit-container a:hover {
+    background-color: grey;
+    color: black;
+}
+form {
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+form label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+    color: #111111;
+}
+
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 0.8rem 0;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     font-size: 1rem;
-    border: black solid 1px;
-    margin: auto;
-    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+#sub {
+    width: 100%;
+    padding: 1rem;
+    background-color: #6c2dc7;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 600px;
+}
+
+#sub:hover {
+    background-color: #440071;
 }

@@ -31,7 +31,7 @@ Main home page for the website
             <img class="hero-img" src="images/backdrop.svg" />
             <h1 class="hero-title">You dream it. <br> I'll <span class="hero-grad-text">design</span> it!</h1>
             <p class="hero-subtitle">I specialize in designing Roblox animations and graphics. Let's get in touch so I can make your ideas come to life.</p>
-            <button class="contact-me">Contact me</button>
+            <button id="contact-me" class="contact-me">Contact me</button>
         </div>
         <div class="about-me">
             <p class="about-me-subtitle">ABOUT ME</p>

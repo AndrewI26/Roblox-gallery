@@ -25,14 +25,16 @@ Login page for the website
             <li class="nav-item"><a href="admin.php">Admin</a></li>
         </ul>
     </nav>
-    <form class="login" action="backend.php" method="POST">
-        <p class="login-title">Admin Login Page</p>
-        <p>Username</p>
-        <input class="user" name="username" type="text" />
-        <p>Password</p>
-        <input class="pass" name="password" type="password" />
-        <input type="submit" class="login-btn"/>
-    </form>
+    <main class="login-container">
+        <form class="login" action="edit.php" method="POST">
+            <p class="login-title">Admin Login Page</p>
+            <p>Username</p>
+            <input class="user" name="username" type="text" />
+            <p>Password</p>
+            <input class="pass" name="password" type="password" />
+            <input id="sub" type="submit" class="login-btn" />
+        </form>
+    </main>
 </body>
 
 </html>

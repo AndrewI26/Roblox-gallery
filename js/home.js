@@ -28,4 +28,7 @@ window.addEventListener("load", () => {
         document.getElementById("gall-title").innerHTML = galleryInformation[galleryPanelCount].title;
         document.getElementById("gall-desc").innerHTML = galleryInformation[galleryPanelCount].desc;
     })
+    document.getElementById("contact-me").addEventListener("click", () => {
+        location.replace("contact.php")
+    })
 })
