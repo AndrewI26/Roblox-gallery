@@ -1,3 +1,8 @@
+<!-- 
+Andrew/Edwin
+April 3
+The gallery page to show off the animations 
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +14,7 @@
     <link rel="stylesheet" href="styles/gallery.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    
+
     <script type="module" src="scripts/index-CimHIg6K.js"></script>
 
 </head>
@@ -35,17 +40,17 @@
             <p>This is an awesome dance. Filler text goes here Filler text goes here Filler text goes here Filler text goes here Filler text goes here </p>
         </div>
     </div>
-    
-    
+
+
     <div id="renderGrid">
         <div class="tile">
-            <canvas class="view tileRender tileRenderHover"  data-fbx="Double Dagger Stab.fbx"></canvas>
+            <canvas class="view tileRender tileRenderHover" data-fbx="Double Dagger Stab.fbx"></canvas>
             <div class="tileHoverText">
-                    <h3>Double dagger</h3>
-                    <p>Awesome double dagger</p>
+                <h3>Double dagger</h3>
+                <p>Awesome double dagger</p>
             </div>
         </div>
-        
+
         <div class="tile">
             <canvas class="view tileRender" data-fbx="Praying.fbx"></canvas>
             <div class="tileWords">
@@ -58,13 +63,13 @@
     <div id="thumbnailGrid">
 
         <div class="tile">
-                <img src="images\gallery\thumbnail1.png">
+            <img src="images\gallery\thumbnail1.png">
         </div>
         <div class="tile">
             <img src="images\gallery\thumbnail2.png">
         </div>
         <div class="tile">
-                <img src="images\gallery\thumbnail3.png">
+            <img src="images\gallery\thumbnail3.png">
         </div>
         <div class="tile">
             <img src="images\gallery\thumbnail4.png">
@@ -74,7 +79,7 @@
 
 
 
-    
+
 
 
 

@@ -1,3 +1,6 @@
+// Andrew Iammancini
+// April 2
+// Basic javascript for frontend homepage. Cycles through gallery.
 window.addEventListener("load", () => {
     let galleryPanelCount = 0;
     const galleryInformation = [
