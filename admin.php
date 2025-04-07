@@ -26,7 +26,7 @@ Login page for the website
         </ul>
     </nav>
     <main class="login-container">
-        <form class="login" action="edit.php" method="POST">
+        <form class="login" action="add.php" method="POST">
             <p class="login-title">Admin Login Page</p>
             <p>Username</p>
             <input class="user" name="username" type="text" />
