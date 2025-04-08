@@ -15,7 +15,7 @@ The gallery page to show off the animations
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-    <script type="module" src="scripts/index-CimHIg6K.js"></script>
+    <script type="module" src="js/index-CimHIg6K.js"></script>
 
 </head>
 

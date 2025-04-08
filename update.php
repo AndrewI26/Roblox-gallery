@@ -40,43 +40,51 @@ try {
             <li class="nav-item"><a href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a href="contact.php">Contact</a></li>
             <li class="nav-item"><a href="admin.php">Admin</a></li>
+            <?php if ($_SESSION["user"] == "Hansan"): ?>
+                <li class="nav-item"><a href="logout.php">Logout</a></li>
+            <?php endif ?>
         </ul>
     </nav>
     <div class="update-container">
         <h1 id="msg"></h1>
-        <table id="update-table" cellpadding="8" cellspacing="2">
-            <colgroup>
-                <col style="width: 50px;">
-                <col style="width: 150px;">
-                <col style="width: 600px;">
-                <col style="width: 150px;">
-                <col style="width: 50px;">
-            </colgroup>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Paragraph</th>
-                    <th>Image</th>
-                    <th>Edit Tile</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody id="update-table-body">
-                <?php
-                while ($tile = $stmt->fetch()) {
-                    echo "<tr>";
-                    echo "<td>" . $tile["id"] . "</td>";
-                    echo "<td>" . $tile["title"] . "</td>";
-                    echo "<td>" . $tile["paragraph"] . "</td>";
-                    echo "<td><img src='data:image/jpg;charset=utf8;base64," . base64_encode($tile['image']) . "'></td>";
-                    echo "<td>" . "<a href='edittile.php?id=" . $tile["id"] . "'>Edit</a>" . "</td>";
-                    echo "<td><button id='del-btn' data-id=$tile[id]>Delete</button></td>";
-                    echo "</tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+        <?php if ($_SESSION["user"] == "Hansan"): ?>
+            <table id="update-table" cellpadding="8" cellspacing="2">
+                <colgroup>
+                    <col style="width: 50px;">
+                    <col style="width: 150px;">
+                    <col style="width: 600px;">
+                    <col style="width: 150px;">
+                    <col style="width: 50px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Paragraph</th>
+                        <th>Image</th>
+                        <th>Edit Tile</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="update-table-body">
+                    <?php
+                    while ($tile = $stmt->fetch()) {
+                        echo "<tr>";
+                        echo "<td>" . $tile["id"] . "</td>";
+                        echo "<td>" . $tile["title"] . "</td>";
+                        echo "<td>" . $tile["paragraph"] . "</td>";
+                        echo "<td><img src='data:image/jpg;charset=utf8;base64," . base64_encode($tile['image']) . "'></td>";
+                        echo "<td>" . "<a href='edittile.php?id=" . $tile["id"] . "'>Edit</a>" . "</td>";
+                        echo "<td><button id='del-btn' data-id=$tile[id]>Delete</button></td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <h1>You are not authorized to be here!</h1>
+            <a id="login-again" href="admin.php">Login</a>
+        <?php endif ?>
     </div>
 </body>
 

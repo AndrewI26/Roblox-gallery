@@ -4,6 +4,8 @@
 // April 2nd
 // Login page for the website 
 
+session_start();
+
 $user = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 $password = filter_input(INPUT_POST, "password", FILTER_DEFAULT);
 
@@ -27,7 +29,9 @@ if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user
     <title>Edit Animations</title>
     <link rel="stylesheet" href="styles/globals.css">
     <link rel="stylesheet" href="styles/admin.css">
-    <script src="js/edit.js"></script>
+    <?php if ($_SESSION["user"] == "Hansan"): ?>
+        <script src="js/add.js"></script>
+    <?php endif ?>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
@@ -39,10 +43,13 @@ if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user
             <li class="nav-item"><a href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a href="contact.php">Contact</a></li>
             <li class="nav-item"><a href="admin.php">Admin</a></li>
+            <?php if ($_SESSION["user"] == "Hansan"): ?>
+                <li class="nav-item"><a href="logout.php">Logout</a></li>
+            <?php endif ?>
         </ul>
     </nav>
     <div class="edit-container">
-        <?php if ($canEdit): ?>
+        <?php if ($_SESSION["user"] == "Hansan"): ?>
             <form id="edit-form" action="backend/addTile.php" enctype="multipart/form-data" method="POST">
                 <label for="title-text">Title Text: </label>
                 <input name="title-text" id="title-text" type="text">

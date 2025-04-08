@@ -7,12 +7,11 @@ Login page for the website
 $user = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 $password = filter_input(INPUT_POST, "password", FILTER_DEFAULT);
 
-$canEdit;
 if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user == "1234") {
-    $canEdit = true;
+    session_start();
+    $_SESSION["user"] = "Hansan";
 } else {
     $errorMsg = "Incorrect authentication.";
-    $canEdit = false;
 }
 ?>
 
@@ -38,10 +37,13 @@ if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user
             <li class="nav-item"><a href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a href="contact.php">Contact</a></li>
             <li class="nav-item"><a href="admin.php">Admin</a></li>
+            <?php if ($_SESSION["user"] == "Hansan"): ?>
+                <li class="nav-item"><a href="logout.php">Logout</a></li>
+            <?php endif ?>
         </ul>
     </nav>
     <div class="edit-container">
-        <?php if ($canEdit): ?>
+        <?php if ($_SESSION["user"] == "Hansan"): ?>
             <form action="addTile.php" method="POST">
                 <label for="title-text">Title Text: </label>
                 <input name="title-text" id="title-text" type="text">
@@ -52,9 +54,9 @@ if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user
                 <input type="submit" id="sub" />
             </form>
         <?php else: ?>
-
             <?php echo $errorMsg ?>
-            <p><a href="admin.php">Try again</a></p>
+            <h1>You are not authorized to be here!</h1>
+            <a id="login-again" href="admin.php">Login</a>
         <?php endif ?>
     </div>
 </body>
