@@ -16,26 +16,6 @@ $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 $message = filter_input(INPUT_POST, "message", FILTER_SANITIZE_SPECIAL_CHARS);
 
-/*
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if ($name && $email && $message) {
-        try {
-            $sql = "INSERT INTO messages (name, email, message) VALUES (?, ?, ?)";
-            $stmt = $pdo->prepare($sql);
-            $result = $stmt->execute([$name, $email, $message]);
-            if ($result) {
-                $success = "The message has been submitted successfully";
-            } else {
-                $error = "Submission failed, please try again later.";
-            }
-        } catch (Exception $e) {
-            $error = "Database error:  ;
-        }
-    } else {
-        $error = "Please fill in all fields and make sure the email address is correct.";
-    }
-}
-*/
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($name && $email && $message) {
         $to = "hansencheng635@gmail.com";
