@@ -5,6 +5,8 @@
 
 include "connect.php";
 
+session_start();
+
 try {
     $cmd = "SELECT * FROM `tiles`";
     $stmt = $dbh->prepare($cmd);
@@ -48,6 +50,9 @@ try {
     <div class="update-container">
         <h1 id="msg"></h1>
         <?php if ($_SESSION["user"] == "Hansan"): ?>
+            <a href="admindashboard.php"><button class="purp-btn">
+                    <p class="purp-btn-text">Go to admin dashboard</p>
+                </button></a>
             <table id="update-table" cellpadding="8" cellspacing="2">
                 <colgroup>
                     <col style="width: 50px;">
@@ -74,8 +79,8 @@ try {
                         echo "<td>" . $tile["title"] . "</td>";
                         echo "<td>" . $tile["paragraph"] . "</td>";
                         echo "<td><img src='data:image/jpg;charset=utf8;base64," . base64_encode($tile['image']) . "'></td>";
-                        echo "<td>" . "<a href='edittile.php?id=" . $tile["id"] . "'>Edit</a>" . "</td>";
-                        echo "<td><button id='del-btn' data-id=$tile[id]>Delete</button></td>";
+                        echo "<td>" . "<a class='edit-btn' href='edittile.php?id=" . $tile["id"] . "'>Edit</a>" . "</td>";
+                        echo "<td><button class='del-btn' data-id=" . $tile["id"] . ">Delete</button></td>";
                         echo "</tr>";
                     }
                     ?>

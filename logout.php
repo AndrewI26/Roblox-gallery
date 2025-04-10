@@ -32,4 +32,5 @@ session_destroy();
     </nav>
     <h1>Logged out!</h1>
 </body>
+
 </html>

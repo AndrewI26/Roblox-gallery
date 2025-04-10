@@ -1,15 +1,28 @@
-<!-- 
-Created by Mekaeel Malik, Andrew Iammancini
-April 2nd
-Login page for the website 
+<!--
+Andrew Iammancini
+April 9
+Made this admin dashboard to allow the admin to navigate to other pages where they can edit their tile. 
 -->
 <?php
+session_start();
 $user = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 $password = filter_input(INPUT_POST, "password", FILTER_DEFAULT);
 
-if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user == "1234") {
-    session_start();
+// Checks if logged in for first time or is already logged in
+if ((password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user == "1234") || $_SESSION["user"] == "Hansan") {
+    include "connect.php";
+
     $_SESSION["user"] = "Hansan";
+
+    $cmd = "SELECT COUNT(*) FROM tiles;";
+    $stmt = $dbh->prepare($cmd);
+    $success = $stmt->execute();
+
+    if (!$success) {
+        $errorMsg = "Query was not successful";
+    } else {
+        $numTiles = $stmt->fetchColumn();
+    }
 } else {
     $errorMsg = "Incorrect authentication.";
 }
@@ -19,11 +32,8 @@ if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Animations</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="styles/globals.css">
     <link rel="stylesheet" href="styles/admin.css">
     <link rel="preconnect" href="https://rsms.me/">
@@ -44,19 +54,18 @@ if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user
     </nav>
     <div class="edit-container">
         <?php if ($_SESSION["user"] == "Hansan"): ?>
-            <form action="addTile.php" method="POST">
-                <label for="title-text">Title Text: </label>
-                <input name="title-text" id="title-text" type="text">
-                <label for="paragraph-text">Paragraph Text: </label>
-                <input name="paragraph-text" id="paragraph-text" type="text">
-                <label for="image-input" id="image-input">Image: </label>
-                <input accept="image/*" name="image-input" id="image-input" type="file">
-                <input type="submit" id="sub" />
-            </form>
+            <h1><?= $errorMsg ?></h1>
+            <h1>Hello, Hansan</h1>
+            <p>There is currently <b><?= $numTiles; ?></b> tiles in the database.</p>
+            <a href="add.php"><button class="purp-btn">
+                    <p class="purp-btn-text">Add tile</p>
+                </button></a>
+            <a href="update.php"><button class="purp-btn">
+                    <p class="purp-btn-text">Update existing tiles</p>
+                </button></a>
         <?php else: ?>
             <?php echo $errorMsg ?>
-            <h1>You are not authorized to be here!</h1>
-            <a id="login-again" href="admin.php">Login</a>
+            <p><a class="grey-btn" href="admin.php">Try again</a></p>
         <?php endif ?>
     </div>
 </body>

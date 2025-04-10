@@ -47,9 +47,6 @@ $tile = $stmt->fetch();
             <li class="nav-item"><a href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a href="contact.php">Contact</a></li>
             <li class="nav-item"><a href="admin.php">Admin</a></li>
-            <?php if ($_SESSION["user"] == "Hansan"): ?>
-                <li class="nav-item"><a href="logout.php">Logout</a></li>
-            <?php endif ?>
         </ul>
     </nav>
     <h1><?php echo $msg; ?></h1>

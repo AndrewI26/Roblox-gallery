@@ -5,17 +5,6 @@
 // Login page for the website 
 
 session_start();
-
-$user = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-$password = filter_input(INPUT_POST, "password", FILTER_DEFAULT);
-
-$canEdit;
-if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user == "1234") {
-    $canEdit = true;
-} else {
-    $errorMsg = "Incorrect authentication.";
-    $canEdit = false;
-}
 ?>
 
 <!DOCTYPE html>
@@ -50,20 +39,23 @@ if (password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $user
     </nav>
     <div class="edit-container">
         <?php if ($_SESSION["user"] == "Hansan"): ?>
+            <a href="admindashboard.php"><button class="purp-btn">
+                    <p class="purp-btn-text">Go to admin dashboard</p>
+                </button></a>
             <form id="edit-form" action="backend/addTile.php" enctype="multipart/form-data" method="POST">
                 <label for="title-text">Title Text: </label>
-                <input name="title-text" id="title-text" type="text">
+                <input name="title-text" id="title-text" type="text" required>
                 <label for="paragraph-text">Paragraph Text: </label>
-                <input name="paragraph-text" id="paragraph-text" type="text">
+                <input name="paragraph-text" id="paragraph-text" type="text" required>
                 <label for="image-input" id="image-input">Image: </label>
                 <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-                <input name="image-input" id="image-input" type="file">
+                <input name="image-input" id="image-input" type="file" required>
                 <input type="submit" id="sub" />
             </form>
             <p id="msg"></p>
         <?php else: ?>
             <?php echo $errorMsg ?>
-            <p><a href="admin.php">Try again</a></p>
+            <p><a class="grey-btn" href="admin.php">Try again</a></p>
         <?php endif ?>
     </div>
 </body>
