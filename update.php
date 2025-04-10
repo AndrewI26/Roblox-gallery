@@ -1,6 +1,6 @@
 <?php
 // Andrew Iammancini
-// April 6
+// April 9
 // Displays all tiles in the database and allows admin to update them
 
 include "connect.php";
@@ -29,6 +29,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update tile</title>
     <link rel="stylesheet" href="styles/globals.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles/admin.css">
     <script src="js/update.js"></script>
     <link rel="preconnect" href="https://rsms.me/">
@@ -59,7 +60,8 @@ try {
                     <col style="width: 150px;">
                     <col style="width: 600px;">
                     <col style="width: 150px;">
-                    <col style="width: 50px;">
+                    <col style="width: 75px;">
+                    <col style="width: 75px;">
                 </colgroup>
                 <thead>
                     <tr>
@@ -75,12 +77,12 @@ try {
                     <?php
                     while ($tile = $stmt->fetch()) {
                         echo "<tr>";
-                        echo "<td>" . $tile["id"] . "</td>";
+                        echo "<td class='center'>" . $tile["id"] . "</td>";
                         echo "<td>" . $tile["title"] . "</td>";
                         echo "<td>" . $tile["paragraph"] . "</td>";
-                        echo "<td><img src='data:image/jpg;charset=utf8;base64," . base64_encode($tile['image']) . "'></td>";
-                        echo "<td>" . "<a class='edit-btn' href='edittile.php?id=" . $tile["id"] . "'>Edit</a>" . "</td>";
-                        echo "<td><button class='del-btn' data-id=" . $tile["id"] . ">Delete</button></td>";
+                        echo "<td class='center'><img src='data:image/jpg;charset=utf8;base64," . base64_encode($tile['image']) . "'></td>";
+                        echo "<td class='center'>" . "<a class='edit-btn' href='edittile.php?id=" . $tile["id"] . "'><i class='fa-solid fa-pen-to-square' style='color:rgb(255, 255, 255);'></i></a>" . "</td>";
+                        echo "<td class='center'><button class='del-btn' data-id=" . $tile["id"] . "><i class='fa-solid fa-trash' style='color: #e32400;'></i></button></td>";
                         echo "</tr>";
                     }
                     ?>
