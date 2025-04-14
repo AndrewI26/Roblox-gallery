@@ -53,7 +53,7 @@ if ((password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $use
         </ul>
     </nav>
     <div class="edit-container">
-        <?php if ($_SESSION["user"] == "Hansen"): ?>
+        <?php if ($_SESSION["user"] == "Hansan"): ?>
             <h1><?= $errorMsg ?></h1>
             <h1>Hello, Hansan</h1>
             <p>There is currently <b><?= $numTiles; ?></b> tiles in the database.</p>

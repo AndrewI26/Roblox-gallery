@@ -37,6 +37,8 @@ $tile = $stmt->fetch();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/globals.css">
     <link rel="stylesheet" href="styles/admin.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>Edit tile</title>
 </head>
 
@@ -51,6 +53,9 @@ $tile = $stmt->fetch();
     </nav>
     <h1><?php echo $msg; ?></h1>
     <?php if ($_SESSION["user"] == "Hansan"): ?>
+        <a href="update.php"><button class="purp-btn">
+                <p class="purp-btn-text">Go back</p>
+            </button></a>
         <form id="edit-form" action="backend/addTile.php" method="POST">
             <label for="title-text">Title Text: </label>
             <input name="title-text" id="title-text" type="text" value="<?php echo $tile["title"]; ?>">

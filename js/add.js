@@ -13,12 +13,23 @@ window.addEventListener("load", () => {
             data.append('files',file,file.name)
         }
         
+        /**
+         * 
+         * @typedef {Object} Data 
+         * @property {Boolean} ok - Whether request was successful.
+         * @property {String} msg - Response message to display on the screen.
+         */
+        /**
+         * 
+         * @param {Data} data - The response data.
+         */
         const success = data => {
             document.getElementById("msg").innerHTML = (
                 data.ok ? 
                 `Success: ${data.msg}` :
                 `Failure: ${data.msg}`
             )
+            document.getElementById("edit-form").reset();
         }
 
         fetch("backend/addTile.php", {

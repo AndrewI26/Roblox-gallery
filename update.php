@@ -80,7 +80,7 @@ try {
                         echo "<td class='center'>" . $tile["id"] . "</td>";
                         echo "<td>" . $tile["title"] . "</td>";
                         echo "<td>" . $tile["paragraph"] . "</td>";
-                        echo "<td class='center'><img src='data:image/jpg;charset=utf8;base64," . base64_encode($tile['image']) . "'></td>";
+                        echo "<td class='center'><img class='update-image' src='data:image/jpg;charset=utf8;base64," . base64_encode($tile['image']) . "'></td>";
                         echo "<td class='center'>" . "<a class='edit-btn' href='edittile.php?id=" . $tile["id"] . "'><i class='fa-solid fa-pen-to-square' style='color:rgb(255, 255, 255);'></i></a>" . "</td>";
                         echo "<td class='center'><button class='del-btn' data-id=" . $tile["id"] . "><i class='fa-solid fa-trash' style='color: #e32400;'></i></button></td>";
                         echo "</tr>";

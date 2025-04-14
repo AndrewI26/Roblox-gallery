@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
     document.getElementById("gall-title").innerHTML = galleryInformation[galleryPanelCount].title;
     document.getElementById("gall-desc").innerHTML = galleryInformation[galleryPanelCount].desc;
     document.getElementById("home-arrow").addEventListener("click", () => {
-        galleryPanelCount = galleryPanelCount > 3 ? 0 : galleryPanelCount + 1;
+        galleryPanelCount = galleryPanelCount >= galleryInformation.length - 1 ? 0 : galleryPanelCount + 1;
         document.getElementById("gall-title").innerHTML = galleryInformation[galleryPanelCount].title;
         document.getElementById("gall-desc").innerHTML = galleryInformation[galleryPanelCount].desc;
     })

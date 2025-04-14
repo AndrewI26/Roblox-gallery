@@ -48,7 +48,6 @@ session_start();
                 <label for="paragraph-text">Paragraph Text: </label>
                 <input name="paragraph-text" id="paragraph-text" type="text" required>
                 <label for="image-input" id="image-input">Image: </label>
-                <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
                 <input name="image-input" id="image-input" type="file" required>
                 <input type="submit" id="sub" />
             </form>

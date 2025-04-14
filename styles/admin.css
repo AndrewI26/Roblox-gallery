@@ -26,9 +26,8 @@ form p {
     justify-content: center;
     flex-direction: column;
     height: 90vh;
-    padding: 5rem;
 }
-.edit-container a {
+.grey-btn {
     color: var(--text-secondary);
     font-weight: 700;
     border-radius: 15px;
@@ -37,7 +36,7 @@ form p {
     background-color: var(--bg-secondary);
     padding: 1rem;
 }
-.edit-container a:hover {
+.grey-btn {
     background-color: grey;
     color: black;
 }
@@ -54,8 +53,6 @@ form label, form p {
     text-align: left;
     color: #111111;
 }
-
-
 form input,
 form textarea {
     width: 100%;
@@ -65,6 +62,13 @@ form textarea {
     border-radius: 5px;
     font-size: 1rem;
     font-family: sans-serif;
+}
+thead {
+    background-color: black;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: rgb(221, 221, 221);
 }
 
 
@@ -80,11 +84,46 @@ form textarea {
     cursor: pointer;
     max-width: 600px;
 }
-
 #sub:hover {
     background-color: #440071;
 }
 #update-table {
     margin-left: auto;
     margin-right: auto;
+}
+.update-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.del-btn {
+    padding: .2rem 1rem;
+    font-size: 1.2rem;
+    background-color: rgb(255, 161, 161);
+    color: rgb(255, 18, 18);
+    text-align: center;
+    border-radius: 15px;
+    border: none;
+}
+.del-btn:hover {
+    background-color: rgb(126, 4, 4);
+}
+.edit-btn {
+    background-color: black;
+    text-decoration: none;
+    color: white;
+    padding: .2rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 1.2rem;
+}
+.edit-btn:hover {
+    background-color: rgb(87, 87, 87);
+}
+.center {
+    text-align: center;
+}
+.update-image {
+    max-width: 100px;
 }
