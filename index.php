@@ -3,6 +3,26 @@ Created by Andrew Iammancini
 March 27
 Main home page for the website 
 -->
+<?php
+include "connect.php";
+
+try {
+    $cmd = "SELECT `id`, title, paragraph FROM `tiles`";
+    $stmt = $dbh->prepare($cmd);
+    $success = $stmt->execute();
+    if (!$success) {
+        $errMsg = "Query was unsuccessful";
+    } else {
+        $tiles = $stmt->fetchAll();
+    }
+} catch (Exception $e) {
+    $errMsg = "Exception occured" . $e;
+};
+
+?>
+<script>
+    let galleryInformation = <?= json_encode($tiles) ?>;
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +34,7 @@ Main home page for the website
     <link rel="stylesheet" href="styles/home.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
     <script src="js/home.js"></script>
 </head>
 
@@ -35,7 +56,7 @@ Main home page for the website
         </div>
         <div class="about-me">
             <p class="about-me-subtitle">ABOUT ME</p>
-            <p class="about-me-title">Hi, I'm Hansen</p>
+            <p class="about-me-title">Hi, I'm Hansan</p>
             <p class="about-me-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         </div>
         <div class="quote-container">
@@ -66,14 +87,14 @@ Main home page for the website
             <div class="work-flex">
                 <div class="work-info">
                     <div class="work-info-container">
+                        <h1><?= $errMsg ?></h1>
                         <p id="gall-title" class="work-item-title">Sample name</p>
                         <p id="gall-desc" class="work-item-desc">Sample description kndjfsg dkfs jnkdf gd ksfg kbdfsg kvgb injn.</p>
-                        <p id="gall-link" class="work-item-link"><a>Check it out in the gallery</a></p>
-                        <i id="home-arrow" class="arrow right"></i>
+                        <p id="gall-link" class="work-item-link"><a id="link-to-img">Check it out in the gallery</a></p>
+                        <div id="home-arrow" class="arrow right"></div>
                     </div>
                 </div>
-                <div class="work-img">
-                </div>
+                <div id="gall-img"></div>
             </div>
         </div>
     </main>

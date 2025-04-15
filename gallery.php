@@ -17,10 +17,7 @@ try {
 } catch (Exception $e) {
     echo $e;
 }
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,7 +78,7 @@ try {
     <div id="thumbnailGrid">
         <?php
         while ($tile = $stmt->fetch()) {
-            echo "<div class='tile'>";
+            echo "<div id=" . $tile['id'] . " class='tile'>";
             echo "<img class='gallery-image' src='data:image/jpg;charset=utf8;base64," . base64_encode($tile['image']) . "'>";
             echo "<h5>" . $tile['title'] . "</h5>";
             echo "<p>" . $tile['paragraph'] . "</p>";
