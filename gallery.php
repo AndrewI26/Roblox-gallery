@@ -4,19 +4,19 @@ April 3
 The gallery page to show off the animations 
 -->
 <?php
-include "connect.php";
+// include "connect.php";
 
-try {
-    $cmd = "SELECT * FROM `tiles`";
-    $stmt = $dbh->prepare($cmd);
-    $success = $stmt->execute();
+// try {
+//     $cmd = "SELECT * FROM `tiles`";
+//     $stmt = $dbh->prepare($cmd);
+//     $success = $stmt->execute();
 
-    if (!$success) {
-        $errMsg = "Query was not successful";
-    }
-} catch (Exception $e) {
-    echo $e;
-}
+//     if (!$success) {
+//         $errMsg = "Query was not successful";
+//     }
+// } catch (Exception $e) {
+//     echo $e;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@ try {
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-    <script type="module" src="js/index-CimHIg6K.js"></script>
+    <script type="module" src="js/index-D7xcEVVU.js"></script>
 
 </head>
 
@@ -48,20 +48,24 @@ try {
     <div id="header">
         <h1>Gallery</h1>
     </div>
+
+    <div class="subHeader">
+        <h2>3D Models</h2>
+    </div>
     <h1><?= $errMsg; ?></h1>
     <div id="headerRender">
-        <canvas class="view" id="mainRender" data-fbx="Hip Hop Dancing.fbx"></canvas>
+        <canvas class="view" id="mainRender" data-glb="Mechanical Greenhouse MK2.glb"></canvas>
         <div id="mainHoverText">
-            <h3>Awesome Dance</h3>
-            <p>This is an awesome dance. Filler text goes here Filler text goes here Filler text goes here Filler text goes here Filler text goes here </p>
+            <h3>Mechanical Greenhouse MK2</h3>
+            <p>I had to delete like 5 different things to export the glb properly. Half textures didnt load properly. </p>
         </div>
     </div>
 
 
     <div id="renderGrid">
         <div class="tile">
-            <canvas class="view tileRender tileRenderHover" data-fbx="Double Dagger Stab.fbx"></canvas>
-            <div class="tileHoverText">
+            <canvas class="view tileRender" data-fbx="Double Dagger Stab.fbx"></canvas>
+            <div class="tileWords">
                 <h3>Double dagger</h3>
                 <p>Awesome double dagger</p>
             </div>
@@ -74,6 +78,10 @@ try {
                 <p>description</p>
             </div>
         </div>
+    </div>
+
+    <div class="subHeader">
+        <h2>Thumbnails</h2>
     </div>
     <div id="thumbnailGrid">
         <?php
