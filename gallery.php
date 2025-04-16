@@ -56,16 +56,16 @@ The gallery page to show off the animations
     <div id="headerRender">
         <canvas class="view" id="mainRender" data-glb="Mechanical Greenhouse MK2.glb"></canvas>
         <div id="mainHoverText">
-            <h3>Awesome Dance</h3>
-            <p>This is an awesome dance. Filler text goes here Filler text goes here Filler text goes here Filler text goes here Filler text goes here </p>
+            <h3>Mechanical Greenhouse MK2</h3>
+            <p>I had to delete like 5 different things to export the glb properly. Half textures didnt load properly. </p>
         </div>
     </div>
 
 
     <div id="renderGrid">
         <div class="tile">
-            <canvas class="view tileRender tileRenderHover" data-fbx="Double Dagger Stab.fbx"></canvas>
-            <div class="tileHoverText">
+            <canvas class="view tileRender" data-fbx="Double Dagger Stab.fbx"></canvas>
+            <div class="tileWords">
                 <h3>Double dagger</h3>
                 <p>Awesome double dagger</p>
             </div>
