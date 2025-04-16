@@ -4,19 +4,19 @@ April 3
 The gallery page to show off the animations 
 -->
 <?php
-// include "connect.php";
+include "connect.php";
 
-// try {
-//     $cmd = "SELECT * FROM `tiles`";
-//     $stmt = $dbh->prepare($cmd);
-//     $success = $stmt->execute();
+try {
+    $cmd = "SELECT * FROM `tiles`";
+    $stmt = $dbh->prepare($cmd);
+    $success = $stmt->execute();
 
-//     if (!$success) {
-//         $errMsg = "Query was not successful";
-//     }
-// } catch (Exception $e) {
-//     echo $e;
-// }
+    if (!$success) {
+        $errMsg = "Query was not successful";
+    }
+} catch (Exception $e) {
+    echo $e;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,13 +44,9 @@ The gallery page to show off the animations
         </ul>
     </nav>
 
-
-    <div id="header">
-        <h1>Gallery</h1>
-    </div>
-
     <div class="subHeader">
         <h2>3D Models</h2>
+        <p>I can make intricate 3D models for Roblox or any other game/purpose. Just send me your idea and I will make it come to life.</p>
     </div>
     <h1><?= $errMsg; ?></h1>
     <div id="headerRender">
@@ -60,35 +56,16 @@ The gallery page to show off the animations
             <p>I had to delete like 5 different things to export the glb properly. Half textures didnt load properly. </p>
         </div>
     </div>
-
-
-    <div id="renderGrid">
-        <div class="tile">
-            <canvas class="view tileRender" data-fbx="Double Dagger Stab.fbx"></canvas>
-            <div class="tileWords">
-                <h3>Double dagger</h3>
-                <p>Awesome double dagger</p>
-            </div>
-        </div>
-
-        <div class="tile">
-            <canvas class="view tileRender" data-fbx="Praying.fbx"></canvas>
-            <div class="tileWords">
-                <h3>thing</h3>
-                <p>description</p>
-            </div>
-        </div>
-    </div>
-
     <div class="subHeader">
-        <h2>Thumbnails</h2>
+        <h2>Check out my thumbnails</h2>
+        <p>I've made made thumbnails for a variety of Roblox games. Some of these thumbnails have been seen by thousands of players.</p>
     </div>
     <div id="thumbnailGrid">
         <?php
         while ($tile = $stmt->fetch()) {
             echo "<div id=" . $tile['id'] . " class='tile'>";
             echo "<img class='gallery-image' src='data:image/jpg;charset=utf8;base64," . base64_encode($tile['image']) . "'>";
-            echo "<h5>" . $tile['title'] . "</h5>";
+            echo "<h2>" . $tile['title'] . "</h2>";
             echo "<p>" . $tile['paragraph'] . "</p>";
             echo "</div>";
         }
