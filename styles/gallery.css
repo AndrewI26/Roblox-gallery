@@ -2,6 +2,8 @@
 Andrew Iammancini
 April 3
 Styling for /gallery route
+
+Edwin Warriner April
 */
 
 body{
@@ -19,13 +21,11 @@ body{
 
 #header{
     text-align: center;
-    background-color: var(--primary);
     padding: 20px;
-    margin-bottom: -26px;
 }
 #header h1{
     margin: 0;
-    color: white; 
+    color: var(--text-primary); 
     padding: 0;
     max-width: 100%;
 
@@ -38,6 +38,17 @@ body{
     width: 100%;
     margin-bottom: 10%;
 }
+
+
+.subHeader{
+    background-color: var(--primary);
+    padding: 20px;
+}
+
+.subHeader h2{
+    color: white;
+}
+
 
 
 #mainRender:hover ~ #mainHoverText{

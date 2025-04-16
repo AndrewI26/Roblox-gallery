@@ -48,6 +48,10 @@ The gallery page to show off the animations
     <div id="header">
         <h1>Gallery</h1>
     </div>
+
+    <div class="subHeader">
+        <h2>3D Models</h2>
+    </div>
     <h1><?= $errMsg; ?></h1>
     <div id="headerRender">
         <canvas class="view" id="mainRender" data-glb="Mechanical Greenhouse MK2.glb"></canvas>
@@ -74,6 +78,10 @@ The gallery page to show off the animations
                 <p>description</p>
             </div>
         </div>
+    </div>
+
+    <div class="subHeader">
+        <h2>Thumbnails</h2>
     </div>
     <div id="thumbnailGrid">
         <?php
