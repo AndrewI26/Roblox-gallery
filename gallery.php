@@ -30,7 +30,7 @@ try {
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-    <script type="module" src="js/index-D7xcEVVU.js"></script>
+    <script type="module" src="js/index-CU8g_swT.js"></script>
 
 </head>
 
@@ -53,8 +53,11 @@ try {
         <canvas class="view" id="mainRender" data-glb="Mechanical Greenhouse MK2.glb"></canvas>
         <div id="mainHoverText">
             <h3>Mechanical Greenhouse MK2</h3>
-            <p>I had to delete like 5 different things to export the glb properly. Half textures didnt load properly. </p>
+            <p>Future high tech mechanical greenhouse.  </p>
         </div>
+    </div>
+    <div id="gifDiv">
+        <img src="images\greenhouse.gif">
     </div>
     <div class="subHeader">
         <h2>Check out my thumbnails</h2>
