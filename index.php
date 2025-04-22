@@ -29,7 +29,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hansans Portfolio</title>
+    <title>Hansens Portfolio</title>
     <link rel="stylesheet" href="styles/globals.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="preconnect" href="https://rsms.me/">
@@ -56,7 +56,7 @@ try {
         </div>
         <div class="about-me">
             <p class="about-me-subtitle">ABOUT ME</p>
-            <p class="about-me-title">Hi, I'm Hansan</p>
+            <p class="about-me-title">Hi, I'm Hansen</p>
             <p class="about-me-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         </div>
         <div class="quote-container">
