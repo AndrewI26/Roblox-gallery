@@ -19,6 +19,11 @@ window.addEventListener("load", () => {
         
     }
 
+    /**
+     * Deletes a tile by taking in an event with a pointer to the target and then removing the tile.
+     * @param {tile} e - The targeted tile for deletion.
+     * 
+    */
     function deleteTile(e) {
         e.preventDefault();
         let tileId = e.target.dataset.id;

@@ -8,6 +8,7 @@ window.addEventListener("load", () => {
         const form = e.target;
         var input = document.querySelector('input[type="file"]')
 
+        // Gets the data from the form
         var data = new FormData(form)
         for (const file of input.files) {
             data.append('files',file,file.name)
@@ -32,6 +33,7 @@ window.addEventListener("load", () => {
             document.getElementById("edit-form").reset();
         }
 
+        // Adds in the tile using a POST API call
         fetch("backend/addTile.php", {
             method: "POST",
             body: data,
