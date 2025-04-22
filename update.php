@@ -1,5 +1,5 @@
 <?php
-// Andrew Iammancini
+// Andrew Iammancini, Mekaeel Malik
 // April 9
 // Displays all tiles in the database and allows admin to update them
 
