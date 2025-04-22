@@ -1,4 +1,9 @@
 <?php
+// Kaihang Hao
+// April 6
+//
+/*  Sending mail via Gmail SMTP using PHPMailer. After submission, hansenheng635@gmail will receive an email from kaihanghao7788@gmail.com. 
+The reply person will automatically become the email address submitted by the user.*/
 require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
@@ -12,7 +17,7 @@ $error = "";
 $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 $message = filter_input(INPUT_POST, "message", FILTER_SANITIZE_SPECIAL_CHARS);
-
+//Gmail SMTP using PHPMailer
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($name && $email && $message) {
         $mail = new PHPMailer(true);
