@@ -14,6 +14,7 @@ try {
     if (!$success) {
         $errMsg = "Query was not successful";
     }
+    $errMsg ="";
 } catch (Exception $e) {
     echo $e;
 }
