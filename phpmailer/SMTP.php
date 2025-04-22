@@ -1,5 +1,7 @@
 <?php
-
+//Kaihang Hao
+//16/04
+/*This is the file i downloaded in order to send mail via SMTP using phpMailer*/
 /**
  * PHPMailer RFC821 SMTP email transport class.
  * PHP Version 5.5.
