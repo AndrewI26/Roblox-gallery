@@ -1,6 +1,6 @@
 //edwin warriner
 //march 29
-// views 3d models of format glb and fbx and plays animations. Fbx does not load textures.
+// views 3d models of format glb and fbx and plays animations.
 import * as THREE from "three";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -10,6 +10,72 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 //resource was used
 
 //This program does not actually run and is compiled. This is here to see the work done.
+
+/**loadGLB
+ * This function loads glb files. This loads textures, model and animation.
+ * @param scene The THREE js scene to load the model into
+ * @param glbPath The file name of the glb file
+ */
+function loadGLB(scene, glbPath) {
+  const glbLoader = new GLTFLoader();
+  glbLoader.load("assets/models/glb/" + glbPath, (gltf) => {
+    const model = gltf.scene;
+
+    //scenes shadow behavior
+    model.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+    //scale
+    model.scale.set(0.25, 0.25, 0.25);
+
+    scene.add(model);
+
+    //animations
+    if (gltf.animations) {
+      mixer = new THREE.AnimationMixer(model);
+      gltf.animations.forEach((clip) => {
+        mixer.clipAction(clip).play();
+      });
+    }
+  });
+}
+/**loadFBX
+ * This function loads FBX files. This loads model and animation.
+ * @param scene The THREE js scene to load the model into
+ * @param fbxPath The file name of the fbx file
+ */
+function loadFBX(canvas, fbxPath) {
+  //fbxLoader
+  const fbxLoader = new FBXLoader();
+  fbxLoader.load("assets/models/fbx/" + fbxPath, (object) => {
+    object.traverse((child) => {
+      if (child.isMesh) {
+        //white material
+        child.material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+        //enable shadow casting and receiving
+        child.castShadow = true;
+        //looks better wihtout receiving
+        child.receiveShadow = false;
+      }
+    });
+
+    //scale and position
+    object.scale.set(0.01, 0.01, 0.01);
+    object.position.set(0, 0, 0);
+    object.castShadow = true;
+    scene.add(object);
+    //checks animation
+    if (object.animations) {
+      mixer = new THREE.AnimationMixer(object);
+      object.animations.forEach((clip) => {
+        mixer.clipAction(clip).play();
+      });
+    }
+  });
+}
 
 //defining canvas so display can be edited by css
 const canvasArray = document.getElementsByClassName("view");
@@ -33,8 +99,7 @@ for (let i = 0; i < canvasArray.length; i++) {
 
   //new display renderer
 
-
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true});
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
   renderer.setSize(width, height);
   renderer.shadowMap.enabled = true;
 
@@ -86,61 +151,12 @@ for (let i = 0; i < canvasArray.length; i++) {
 
   //if element is an fbx file type
   if ((fbxPath = canvas.dataset.fbx)) {
-    //fbxLoader
-    const fbxLoader = new FBXLoader();
-    fbxLoader.load("assets/models/fbx/" + fbxPath, (object) => {
-      object.traverse((child) => {
-        if (child.isMesh) {
-          //white material
-          child.material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-          //enable shadow casting and receiving
-          child.castShadow = true;
-          //looks better wihtout receiving
-          child.receiveShadow = false;
-        }
-      });
-
-      //scale and position
-      object.scale.set(0.01, 0.01, 0.01);
-      object.position.set(0, 0, 0);
-      object.castShadow = true;
-      scene.add(object);
-      //checks animation
-      if (object.animations) {
-        mixer = new THREE.AnimationMixer(object);
-        object.animations.forEach((clip) => {
-          mixer.clipAction(clip).play();
-        });
-      }
-    });
-    //if glb
+    loadFBX(canvas, fbxPath);
   } else if ((glbPath = canvas.dataset.glb)) {
-    const glbLoader = new GLTFLoader();
-    glbLoader.load("assets/models/glb/" + glbPath, (gltf) => {
-      const model = gltf.scene;
-
-      //scenes shadow behavior
-      model.traverse((child) => {
-        if (child.isMesh) {
-          child.castShadow = true;
-          child.receiveShadow = true;
-        }
-      });
-      //scale
-      model.scale.set(0.25, 0.25, 0.25);
-
-      scene.add(model);
-
-      //animations
-      if (gltf.animations) {
-        mixer = new THREE.AnimationMixer(model);
-        gltf.animations.forEach((clip) => {
-          mixer.clipAction(clip).play();
-        });
-      }
-    });
+    loadGLB(scene, glbPath);
   }
-
+  //animate()
+  //This allows scene to update for animation and controls
   function animate() {
     requestAnimationFrame(animate);
 
@@ -151,7 +167,6 @@ for (let i = 0; i < canvasArray.length; i++) {
     controls.update();
     renderer.render(scene, camera);
   }
-
   animate();
 
   //resize renderer
