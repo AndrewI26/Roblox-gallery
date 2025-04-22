@@ -1,5 +1,5 @@
 <?php
-// Andrew Iammancini
+// Andrew Iammancini, Mekaeel Malik
 // April 6
 // Page which allows admin to edit a specific tile in the database.
 
