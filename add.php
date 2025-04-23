@@ -1,5 +1,4 @@
 <?php
-
 // Created by Mekaeel Malik, Andrew Iammancini
 // April 2nd
 // Login page for the website 
@@ -28,11 +27,10 @@ session_start();
 <body>
     <nav class="nav">
         <ul class="nav-list">
-            <li class="nav-item"><a href="index.php">Home</a></li>
-            <li class="nav-item"><a href="gallery.php">Gallery</a></li>
-            <li class="nav-item"><a href="contact.php">Contact</a></li>
-            <li class="nav-item"><a href="admin.php">Admin</a></li>
             <?php if ($_SESSION["user"] == "Hansan"): ?>
+                <li class="nav-item"><a href="update.php">Update Tiles</a></li>
+                <li class="nav-item"><a href="add.php">Add Tile</a></li>
+                <li class="nav-item"><a href="messages.php">View Messages</a></li>
                 <li class="nav-item"><a href="logout.php">Logout</a></li>
             <?php endif ?>
         </ul>

@@ -1,9 +1,10 @@
-<!--
-Andrew Iammancini
-April 9
-Made this admin dashboard to allow the admin to navigate to other pages where they can edit their tile. 
--->
 <?php
+// Andrew Iammancini
+// April 9
+// Made this admin dashboard to allow the admin to navigate to other pages where they can edit their tile. 
+// USERNAME: 1234
+// PASSWORD: 1234
+
 session_start();
 $user = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 $password = filter_input(INPUT_POST, "password", FILTER_DEFAULT);
@@ -22,6 +23,16 @@ if ((password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $use
         $errorMsg = "Query was not successful";
     } else {
         $numTiles = $stmt->fetchColumn();
+    }
+
+    $cmd = "SELECT COUNT(*) FROM messages";
+    $stmt = $dbh->prepare($cmd);
+    $success = $stmt->execute();
+
+    if (!$success) {
+        $errorMsg = "Query was not successful";
+    } else {
+        $numMsg = $stmt->fetchColumn();
     }
 } else {
     $errorMsg = "Incorrect authentication.";
@@ -43,11 +54,11 @@ if ((password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $use
 <body>
     <nav class="nav">
         <ul class="nav-list">
-            <li class="nav-item"><a href="index.php">Home</a></li>
-            <li class="nav-item"><a href="gallery.php">Gallery</a></li>
-            <li class="nav-item"><a href="contact.php">Contact</a></li>
-            <li class="nav-item"><a href="admin.php">Admin</a></li>
+            <li></li>
             <?php if ($_SESSION["user"] == "Hansan"): ?>
+                <li class="nav-item"><a href="update.php">Update Tiles</a></li>
+                <li class="nav-item"><a href="add.php">Add Tile</a></li>
+                <li class="nav-item"><a href="messages.php">View Messages</a></li>
                 <li class="nav-item"><a href="logout.php">Logout</a></li>
             <?php endif ?>
         </ul>
@@ -57,6 +68,7 @@ if ((password_verify($password, password_hash("1234", PASSWORD_DEFAULT)) && $use
             <h1><?= $errorMsg ?></h1>
             <h1>Hello, Hansan</h1>
             <p>There is currently <b><?= $numTiles; ?></b> tiles in the database.</p>
+            <p>You have <b><?= $numMsg; ?></b> messages.</p>
             <a href="add.php"><button class="purp-btn">
                     <p class="purp-btn-text">Add tile</p>
                 </button></a>

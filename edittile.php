@@ -45,10 +45,12 @@ $tile = $stmt->fetch();
 <body>
     <nav class="nav">
         <ul class="nav-list">
-            <li class="nav-item"><a href="index.php">Home</a></li>
-            <li class="nav-item"><a href="gallery.php">Gallery</a></li>
-            <li class="nav-item"><a href="contact.php">Contact</a></li>
-            <li class="nav-item"><a href="admin.php">Admin</a></li>
+            <?php if ($_SESSION["user"] == "Hansan"): ?>
+                <li class="nav-item"><a href="update.php">Update Tiles</a></li>
+                <li class="nav-item"><a href="add.php">Add Tile</a></li>
+                <li class="nav-item"><a href="messages.php">View Messages</a></li>
+                <li class="nav-item"><a href="logout.php">Logout</a></li>
+            <?php endif ?>
         </ul>
     </nav>
     <h1><?php echo $msg; ?></h1>
@@ -63,7 +65,7 @@ $tile = $stmt->fetch();
             <input name="paragraph-text" id="paragraph-text" value="<?php echo $tile["paragraph"]; ?>" type="text">
             <label for="image-input" id="image-input">Image: </label>
             <input accept="image/*" name="image-input" id="image-input" type="file">
-            <img src="data:image/jpg;charset=utf8;base64,<?= base64_encode($tile['image']); ?>">
+            <img class="edit-img" src="data:image/jpg;charset=utf8;base64,<?= base64_encode($tile['image']); ?>">
             <input type="submit" id="sub" />
         </form>
     <?php else: ?>

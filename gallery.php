@@ -14,7 +14,6 @@ try {
     if (!$success) {
         $errMsg = "Query was not successful";
     }
-    $errMsg ="";
 } catch (Exception $e) {
     echo $e;
 }
@@ -54,7 +53,7 @@ try {
         <canvas class="view" id="mainRender" data-glb="Mechanical Greenhouse MK2.glb"></canvas>
         <div id="mainHoverText">
             <h3>Mechanical Greenhouse MK2</h3>
-            <p>Future high tech mechanical greenhouse.  </p>
+            <p>Future high tech mechanical greenhouse. </p>
         </div>
     </div>
     <div id="gifDiv">

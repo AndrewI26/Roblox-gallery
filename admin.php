@@ -1,7 +1,7 @@
 <!-- 
 Created by Andrew Iammancini, Mekaeel Malik
 April 2nd
-Login page for the website 
+Login page for the website. Allows admin to login.  
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -29,9 +29,9 @@ Login page for the website
         <form class="login" action="admindashboard.php" method="POST">
             <p class="login-title">Admin Login Page</p>
             <p>Username</p>
-            <input class="user" name="username" type="text" />
+            <input class="user" name="username" type="text" required />
             <p>Password</p>
-            <input class="pass" name="password" type="password" />
+            <input class="pass" name="password" type="password" required />
             <input id="sub" type="submit" class="login-btn" />
         </form>
     </main>

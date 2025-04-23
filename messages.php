@@ -1,20 +1,16 @@
 <?php
-// Andrew Iammancini, Mekaeel Malik
-// April 9
-// Displays all tiles in the database and allows admin to update them
+// Andrew Iammancini
+// April 22
+// Displays all messages in the database and allows admin to update them
 
 include "connect.php";
 
 session_start();
 
 try {
-    $cmd = "SELECT * FROM `tiles`";
+    $cmd = "SELECT * FROM `messages`";
     $stmt = $dbh->prepare($cmd);
     $success = $stmt->execute();
-
-    if (!$success) {
-        echo "Query was not successful";
-    }
 } catch (Exception $e) {
     echo $e;
 }
@@ -27,11 +23,11 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update tile</title>
+    <title>View messages</title>
     <link rel="stylesheet" href="styles/globals.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles/admin.css">
-    <script src="js/update.js"></script>
+    <script src="js/messages.js"></script>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
@@ -53,7 +49,7 @@ try {
             <a href="admindashboard.php"><button class="purp-btn">
                     <p class="purp-btn-text">Go to admin dashboard</p>
                 </button></a>
-            <table id="update-table " class="table-bottom-margin" cellpadding="8" cellspacing="2">
+            <table id="update-table" class="table-bottom-margin" cellpadding="8" cellspacing="2">
                 <colgroup>
                     <col style="width: 50px;">
                     <col style="width: 150px;">
@@ -65,22 +61,20 @@ try {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Title</th>
-                        <th>Paragraph</th>
-                        <th>Image</th>
-                        <th>Edit Tile</th>
+                        <th>Name</th>
+                        <th>Message</th>
+                        <th>Date</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody id="update-table-body">
                     <?php
                     while ($tile = $stmt->fetch()) {
-                        echo "<tr class='table-row'>";
+                        echo "<tr>";
                         echo "<td class='center'>" . $tile["id"] . "</td>";
-                        echo "<td>" . $tile["title"] . "</td>";
-                        echo "<td>" . $tile["paragraph"] . "</td>";
-                        echo "<td class='center'><img class='update-image' src='data:image/jpg;charset=utf8;base64," . base64_encode($tile['image']) . "'></td>";
-                        echo "<td class='center'>" . "<a class='edit-btn' href='edittile.php?id=" . $tile["id"] . "'><i class='fa-solid fa-pen-to-square' style='color:rgb(255, 255, 255);'></i></a>" . "</td>";
+                        echo "<td>" . $tile["name"] . "</td>";
+                        echo "<td>" . $tile["msg"] . "</td>";
+                        echo "<td>" . $tile["date"] . "</td>";
                         echo "<td class='center'><button class='del-btn' data-id=" . $tile["id"] . "><i class='fa-solid fa-trash' style='color: #e32400;'></i></button></td>";
                         echo "</tr>";
                     }
