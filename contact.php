@@ -1,40 +1,53 @@
 <?php
+// Kaihang Hao
+// April 6
+//
+/*  Sending mail via Gmail SMTP using PHPMailer. After submission, hansenheng635@gmail will receive an email from kaihanghao7788@gmail.com. 
+The reply person will automatically become the email address submitted by the user.*/
+require 'phpmailer/PHPMailer.php';
+require 'phpmailer/SMTP.php';
+require 'phpmailer/Exception.php';
 
-/*try {
-    $pdo = new PDO(
-        "mysql:host=127.0.0.1;dbname=malikm98_db",
-        "malikm98_local",
-        "1,b:q0(F"
-    );
-} catch (Exception $e) {
-    die("ERROR: Couldn't connect.");
-}*/
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 $success = "";
 $error = "";
 
 $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 $message = filter_input(INPUT_POST, "message", FILTER_SANITIZE_SPECIAL_CHARS);
-
+//Gmail SMTP using PHPMailer
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($name && $email && $message) {
-        $to = "hansencheng635@gmail.com";
-        $subject = "New contact form undefined from $name";
-        $body = "Name: $name\nEmail: $email\nMessage:\n$message";
-        $headers = "From: $email";
+        $mail = new PHPMailer(true);
 
-        if (mail($to, $subject, $body, $headers)) {
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'kaihanghao7788@gmail.com';
+            $mail->Password = 'shkzngnxadhlgxuv'; 
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            $mail->setFrom('kaihanghao7788@gmail.com', 'Website Contact Form');
+            $mail->addAddress('hansencheng635@gmail.com');
+            $mail->addReplyTo($email, $name);
+
+            $mail->Subject = "New contact form message from $name";
+            $mail->Body = "Name: $name\nEmail: $email\nMessage:\n$message";
+
+            $mail->send();
             $success = "The message has been sent successfully.";
-        } else {
-            $error = "Sending failed. Please try again later.";
+        } catch (Exception $e) {
+            $error = "Sending failed. Mailer Error: " . $mail->ErrorInfo;
         }
     } else {
         $error = "Please fill in all fields and make sure the email address is correct.";
     }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
