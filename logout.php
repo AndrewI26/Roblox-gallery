@@ -30,7 +30,9 @@ session_destroy();
             <li class="nav-item"><a href="admin.php">Admin</a></li>
         </ul>
     </nav>
-    <h1>Logged out!</h1>
+    <div class="center-logout">
+        <h1>Logged out!</h1>
+    </div>
 </body>
 
 </html>
